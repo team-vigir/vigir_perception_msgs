@@ -49,7 +49,7 @@ static inline bool convertCompressedToFilteredScan(const vigir_perception_msgs::
   output.processed_scan.angle_min = scan_properties.angle_min;
   output.processed_scan.angle_max = scan_properties.angle_max;
   output.processed_scan.angle_increment = scan_properties.angle_increment;
-  output.processed_scan.angle_increment = scan_properties.time_increment;
+  output.processed_scan.time_increment = scan_properties.time_increment;
   output.processed_scan.scan_time = scan_properties.scan_time;
   output.processed_scan.range_min = scan_properties.range_min;
   output.processed_scan.range_max = scan_properties.range_max;
@@ -82,7 +82,7 @@ static inline bool convertCompressedToFilteredScan(const vigir_perception_msgs::
   output.transform_first_ray = input.transform_first_ray;
   output.transform_last_ray  = input.transform_last_ray;
 
-  return (true);
+  return true;
 }
 
 
@@ -109,8 +109,8 @@ static inline bool convertFilteredToCompressedScan (const vigir_perception_msgs:
     float range_preprocessed = preprocessed_scan_points[i];
     float range_self_filtered = self_filtered_scan_points[i];
 
-    if (range_self_filtered== std::numeric_limits<float>::quiet_NaN()){
-      if (range_preprocessed == std::numeric_limits<float>::quiet_NaN()){
+    if (std::isnan(range_self_filtered)){
+      if (std::isnan(range_preprocessed)){
         output.scan[i] = vigir_perception_msgs::CompressedFilteredScanData::INVALID;
       }else{
         output.scan[i] = static_cast<u_int16_t>(range_preprocessed * 1000.0f) + max_range;
@@ -123,7 +123,7 @@ static inline bool convertFilteredToCompressedScan (const vigir_perception_msgs:
   output.transform_first_ray = input.transform_first_ray;
   output.transform_last_ray  = input.transform_last_ray;
 
-  return (true);
+  return true;
 }
 
 }
