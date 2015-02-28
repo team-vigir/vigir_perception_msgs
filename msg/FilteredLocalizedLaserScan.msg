@@ -23,8 +23,8 @@ sensor_msgs/MultiEchoLaserScan processed_scan
 
 # The pose of the sensor in fixed frame when
 # first ray was retrieved 
-geometry_msgs/Pose pose_first_ray
+geometry_msgs/Transform transform_first_ray
 
 # The pose of the sensor in fixed frame when
 # last ray was retrieved 
-geometry_msgs/Pose pose_last_ray
+geometry_msgs/Transform transform_last_ray
