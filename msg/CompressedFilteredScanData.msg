@@ -4,7 +4,7 @@
 # because scan data is discretized into
 # millimeters and intensities into one byte
 
-uint16 INVALID = 65536
+uint16 INVALID = 65535
 
 
 # Scan data discretized to millimeters.
