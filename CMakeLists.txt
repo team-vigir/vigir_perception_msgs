@@ -32,7 +32,8 @@ install(DIRECTORY include/${PROJECT_NAME}/
   FILES_MATCHING PATTERN "*.h")
   
 add_executable(vigir_perception_msgs_test test/main.cpp)
-target_link_libraries(vigir_perception_msgs_test ${catkin_LIBRARIES})
+add_dependencies(vigir_perception_msgs_test ${PROJECT_NAME}_generate_messages)
+target_link_libraries(vigir_perception_msgs_test  ${catkin_LIBRARIES})
 
 install(TARGETS vigir_perception_msgs_test
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
