@@ -6,6 +6,8 @@
 
 uint16 INVALID = 65535
 
+# Scan start timestamp
+time stamp
 
 # Scan data discretized to millimeters.
 # The following conventions apply:
@@ -14,7 +16,7 @@ uint16 INVALID = 65535
 # INVALID: Invalid scan point
 uint16[] scan
 
-# Intensities scales in reasonable TBD way
+# Intensities scaled in reasonable TBD way
 uint8[] intensities
 
 # The pose of the sensor in fixed frame when
