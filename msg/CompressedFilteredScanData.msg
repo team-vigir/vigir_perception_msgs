@@ -1,5 +1,8 @@
 # This message provides per scan mutable data
-# in in minimal and lossy discretized form
+# in minimal and (slightly) lossy discretized
+# representation. The representation is lossy
+# because scan data is discretized into
+# millimeters and intensities into one byte
 
 uint16 INVALID = 65536
 
