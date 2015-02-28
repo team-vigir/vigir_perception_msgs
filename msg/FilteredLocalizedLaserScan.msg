@@ -4,6 +4,11 @@
 # coming from the sensor. Also provides self filter
 # information
 
+# Types of scans
+uint8 SCAN_PREPROCESSED  = 0
+uint8 SCAN_SELF_FILTERED = 1
+uint8 SCAN_RAW           = 2
+
 # Header
 # stamp: Time of first ray in scan
 # frame_id: Frame of the fixed frame in which scan is localized
@@ -11,9 +16,9 @@ Header header
 
 # The scan
 # Follows the following convention:
-# ranges[0]: The original unmodified scan
-# ranges[1]: The preprocessed scan (filtered for shadow points etc.)
-# ranges[2]: The self-filtered scan
+# ranges[SCAN_PREPROCESSED]: The preprocessed scan (filtered for shadow points etc.)
+# ranges[SCAN_SELF_FILTERED]: The self-filtered scan
+# ranges[SCAN_RAW]: The original unmodified scan
 sensor_msgs/MultiEchoLaserScan processed_scan
 
 # The pose of the sensor in fixed frame when
