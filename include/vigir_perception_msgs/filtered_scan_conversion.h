@@ -126,5 +126,25 @@ static inline bool convertFilteredToCompressedScan (const vigir_perception_msgs:
   return true;
 }
 
+static inline bool convertFilteredToLaserScan (const vigir_perception_msgs::FilteredLocalizedLaserScan &input,
+                                               uint8_t type,
+                                               sensor_msgs::LaserScan &output)
+{
+  output.header = input.processed_scan.header;
+
+  output.angle_min = input.processed_scan.angle_min;
+  output.angle_max = input.processed_scan.angle_max;
+  output.angle_increment = input.processed_scan.angle_increment;
+  output.time_increment = input.processed_scan.time_increment;
+  output.scan_time = input.processed_scan.scan_time;
+  output.range_min = input.processed_scan.range_min;
+  output.range_max = input.processed_scan.range_max;
+
+  output.ranges = input.processed_scan.ranges[type].echoes;
+  output.intensities = input.processed_scan.intensities[0].echoes;
+
+  return true;
+}
+
 }
 #endif
