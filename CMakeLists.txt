@@ -12,7 +12,8 @@ add_message_files(
   DIRECTORY msg
   FILES
   FilteredLocalizedLaserScan.msg
-  CompressedFilteredScanData.msg)
+  CompressedFilteredScanData.msg
+  LocalizedImage.msg)
 
 #add_service_files(
 #  DIRECTORY srv
