@@ -1,0 +1,13 @@
+# Pose in some frame
+geometry_msgs/PoseStamped pose
+
+# Target frame
+string target_frame
+
+---
+
+# The pose transformed into target_frame 
+geometry_msgs/PoseStamped transformed_pose
+
+# A error_code. Is empty if no error
+string error_code

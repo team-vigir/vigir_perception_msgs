@@ -15,9 +15,9 @@ add_message_files(
   CompressedFilteredScanData.msg
   LocalizedImage.msg)
 
-#add_service_files(
-#  DIRECTORY srv
-#  FILES SetCameraInfo.srv)
+add_service_files(
+  DIRECTORY srv
+  FILES GetPoseInFrame.srv)
 
 generate_messages(DEPENDENCIES sensor_msgs geometry_msgs std_msgs)
 
