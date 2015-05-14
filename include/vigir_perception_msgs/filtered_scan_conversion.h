@@ -141,7 +141,10 @@ static inline bool convertFilteredToLaserScan (const vigir_perception_msgs::Filt
   output.range_max = input.processed_scan.range_max;
 
   output.ranges = input.processed_scan.ranges[type].echoes;
-  output.intensities = input.processed_scan.intensities[0].echoes;
+
+  if (input.processed_scan.intensities.size() > 0){
+    output.intensities = input.processed_scan.intensities[0].echoes;
+  }
 
   return true;
 }
