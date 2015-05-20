@@ -78,6 +78,18 @@ static inline bool convertCompressedToFilteredScan(const vigir_perception_msgs::
       self_filtered_scan_points[i] = std::numeric_limits<float>::quiet_NaN();
     }
   }
+
+  if (input.intensities.size() > 0){
+
+    output.processed_scan.intensities.resize(1);
+
+    size_t intensity_size = input.intensities.size();
+    output.processed_scan.intensities[0].echoes.resize(intensity_size);
+
+    for (size_t i = 0; i < intensity_size; ++i){
+      output.processed_scan.intensities[0].echoes[i] = (static_cast<float>(input.intensities[i]) * 40.0f);
+    }
+  }
   
   output.transform_first_ray = input.transform_first_ray;
   output.transform_last_ray  = input.transform_last_ray;
@@ -117,6 +129,17 @@ static inline bool convertFilteredToCompressedScan (const vigir_perception_msgs:
       }
     }else{
       output.scan[i] = static_cast<u_int16_t>(range_preprocessed * 1000.0f);
+    }
+  }
+
+  if (input.processed_scan.intensities.size() > 0){
+
+    size_t intensity_size = input.processed_scan.intensities[0].echoes.size();
+
+    output.intensities.resize (intensity_size);
+
+    for (size_t i = 0; i < intensity_size; ++i){
+      output.intensities[i] = static_cast<uint8_t>(std::min(input.processed_scan.intensities[0].echoes[i],10000.0f) / 40.0f);
     }
   }
 
