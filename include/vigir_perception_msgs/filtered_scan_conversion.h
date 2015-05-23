@@ -45,8 +45,9 @@ static inline bool convertCompressedToFilteredScan(const vigir_perception_msgs::
 
   output.processed_scan.header.stamp = input.stamp;
 
-  output.processed_scan.angle_min = scan_properties.angle_min;
-  output.processed_scan.angle_max = scan_properties.angle_max;
+  output.processed_scan.angle_min = input.angle_min;
+  output.processed_scan.angle_max = input.angle_max;
+
   output.processed_scan.angle_increment = scan_properties.angle_increment;
   output.processed_scan.time_increment = scan_properties.time_increment;
   output.processed_scan.scan_time = scan_properties.scan_time;
@@ -105,6 +106,9 @@ static inline bool convertFilteredToCompressedScan (const vigir_perception_msgs:
     return false;
 
   output.stamp = input.header.stamp;
+
+  output.angle_max = input.angle_max;
+  output.angle_min = input.angle_min;
 
   u_int16_t max_range = static_cast<u_int16_t>(input.processed_scan.range_max * 1000.0f);
 
