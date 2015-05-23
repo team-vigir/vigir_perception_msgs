@@ -107,8 +107,8 @@ static inline bool convertFilteredToCompressedScan (const vigir_perception_msgs:
 
   output.stamp = input.header.stamp;
 
-  output.angle_max = input.angle_max;
-  output.angle_min = input.angle_min;
+  output.angle_max = input.processed_scan.angle_max;
+  output.angle_min = input.processed_scan.angle_min;
 
   u_int16_t max_range = static_cast<u_int16_t>(input.processed_scan.range_max * 1000.0f);
 
