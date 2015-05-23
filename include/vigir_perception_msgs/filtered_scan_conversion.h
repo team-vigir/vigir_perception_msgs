@@ -43,6 +43,7 @@ static inline bool convertCompressedToFilteredScan(const vigir_perception_msgs::
   output.header.frame_id = "/world";
   output.header.stamp = input.stamp;
 
+  output.processed_scan.header.frame_id = scan_properties.header.frame_id;
   output.processed_scan.header.stamp = input.stamp;
 
   output.processed_scan.angle_min = input.angle_min;
