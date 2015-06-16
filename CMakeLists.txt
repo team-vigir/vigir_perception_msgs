@@ -5,21 +5,36 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   geometry_msgs
   sensor_msgs
+  actionlib_msgs
+  octomap_msgs
   std_msgs
 )
 
 add_message_files(
   DIRECTORY msg
   FILES
+  DownSampledImageRequest.msg
+  EnvironmentRegionRequest.msg
+  PointCloudTypeRegionRequest.msg
+  RaycastRequest.msg
   FilteredLocalizedLaserScan.msg
   CompressedFilteredScanData.msg
   LocalizedImage.msg)
 
 add_service_files(
   DIRECTORY srv
-  FILES GetPoseInFrame.srv)
+  FILES
+  GetPoseInFrame.srv
+  PointCloudRegionRequest.srv
+  OctomapRegionRequest.srv
+)
+  
+add_action_files(
+   FILES
+   GetLocomotionTargetPose.action
+)  
 
-generate_messages(DEPENDENCIES sensor_msgs geometry_msgs std_msgs)
+generate_messages(DEPENDENCIES sensor_msgs geometry_msgs actionlib_msgs octomap_msgs std_msgs)
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 

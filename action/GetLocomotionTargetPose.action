@@ -1,0 +1,12 @@
+# Define Goal
+# Use area in front of robot per default, can keep this empty for the moment
+string id_string
+
+---
+
+# Define the result
+geometry_msgs/PoseStamped target_pose
+
+---
+# Feedback
+float32 percent_complete
