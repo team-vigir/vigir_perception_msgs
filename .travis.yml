@@ -34,7 +34,7 @@ install: # Use this to install any prerequisites or dependencies necessary to ru
   - cd ~/ros/ws_vigir_perception/src
   - wstool init .
   # Download non-debian stuff
-  - wstool set vigir_perception_msgs --git https://github.com/team-vigir/vigir_perception_msgs.git
+  - wstool set vigir_perception_msgs --git https://github.com/team-vigir/vigir_perception_msgs.git -y
   - wstool update
   # Delete the moveit.rosinstall version of this repo and use the one of the branch we are testing
   - rm -rf $REPOSITORY_NAME
