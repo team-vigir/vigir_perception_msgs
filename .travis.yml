@@ -31,7 +31,7 @@ before_install: # Use this to prepare the system to install prerequisites or dep
 install: # Use this to install any prerequisites or dependencies necessary to run your build
   # Create workspace
   - mkdir -p ~/ros/ws_vigir_perception/src
-  - cd ~/ros/vigir_perception/src
+  - cd ~/ros/ws_vigir_perception/src
   - wstool init .
   # Download non-debian stuff
   - wstool set vigir_perception_msgs --git https://github.com/team-vigir/vigir_perception_msgs.git
