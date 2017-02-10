@@ -1,6 +1,10 @@
 # Specify frame_id of point cloud data here
 std_msgs/Header header
 
+# If this is set, the data is aggregated in the provided frame and
+# then converted to the one given in the header.
+string aggregation_frame_id
+
 # Bounding box maximum
 geometry_msgs/Point bounding_box_min
 
